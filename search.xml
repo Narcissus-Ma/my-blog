@@ -4,71 +4,175 @@
   
     
     <entry>
-      <title>这是我的第二篇博文置顶</title>
-      <link href="/2025/02/13/%E8%BF%99%E6%98%AF%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E6%96%87%E7%BD%AE%E9%A1%B6/"/>
-      <url>/2025/02/13/%E8%BF%99%E6%98%AF%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E6%96%87%E7%BD%AE%E9%A1%B6/</url>
+      <title>npm 源设置指南：国内镜像与科学上网</title>
+      <link href="/2025/02/14/npm-%E6%BA%90%E8%AE%BE%E7%BD%AE%E6%8C%87%E5%8D%97%EF%BC%9A%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E4%B8%8E%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
+      <url>/2025/02/14/npm-%E6%BA%90%E8%AE%BE%E7%BD%AE%E6%8C%87%E5%8D%97%EF%BC%9A%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E4%B8%8E%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</url>
       
-        <content type="html"><![CDATA[<div class="video-container">[up主专用，视频内嵌代码贴在这]</div><style>.video-container {    position: relative;    width: 100%;    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */}.video-container iframe {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;}</style>]]></content>
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>npm 作为 Node.js 的包管理工具，是前端开发不可或缺的利器。然而，由于网络原因，国内用户直接使用 npm 官方源可能会遇到下载速度慢、甚至无法下载的问题。本文将介绍如何设置 npm 源，切换国内镜像，以及在科学上网情况下如何设置系统代理，帮助你更高效地使用 npm。</p><h3 id="一、npm-源设置"><a href="#一、npm-源设置" class="headerlink" title="一、npm 源设置"></a>一、npm 源设置</h3><h4 id="1-1-查看当前-npm-源"><a href="#1-1-查看当前-npm-源" class="headerlink" title="1.1 查看当前 npm 源"></a>1.1 查看当前 npm 源</h4><p>使用以下命令查看当前 npm 源：</p><p>bash</p><p>复制</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure><p>默认情况下，npm 使用的是官方源：<code>https://registry.npmjs.org/</code></p><h4 id="1-2-设置-npm-源"><a href="#1-2-设置-npm-源" class="headerlink" title="1.2 设置 npm 源"></a>1.2 设置 npm 源</h4><p>你可以使用以下命令将 npm 源设置为国内镜像：</p><p>bash</p><p>复制</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry &lt;镜像地址&gt;</span><br></pre></td></tr></table></figure><p>例如，设置淘宝镜像：</p><p>bash</p><p>复制</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npmmirror.com/</span><br></pre></td></tr></table></figure><h4 id="1-3-常用国内镜像"><a href="#1-3-常用国内镜像" class="headerlink" title="1.3 常用国内镜像"></a>1.3 常用国内镜像</h4><p>以下是一些常用的国内 npm 镜像：</p><ul><li><strong>淘宝镜像:</strong> <code>https://registry.npmmirror.com/</code></li><li><strong>cnpmjs 镜像:</strong> <code>https://r.cnpmjs.org/</code></li><li><strong>华为云镜像:</strong> <code>https://mirrors.huaweicloud.com/repository/npm/</code></li></ul><h3 id="二、科学上网情况下设置系统代理"><a href="#二、科学上网情况下设置系统代理" class="headerlink" title="二、科学上网情况下设置系统代理"></a>二、科学上网情况下设置系统代理</h3><p>如果你已经科学上网，但发现使用npm下载时仍然速度慢，卡顿报错，</p><p>这时你需要检查你的科学上网工具，如果你走的是系统代理模工，这时你电脑上不是所有的应用都经过系统代理。</p><p>你需要单独设置系统代理来加速 npm 的下载速度。</p><h4 id="2-1-设置-HTTP-和-HTTPS-代理"><a href="#2-1-设置-HTTP-和-HTTPS-代理" class="headerlink" title="2.1 设置 HTTP 和 HTTPS 代理"></a>2.1 设置 HTTP 和 HTTPS 代理</h4><p>使用以下命令设置 HTTP 和 HTTPS 代理：</p><p>bash</p><p>复制</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set proxy http://127.0.0.1:1080</span><br><span class="line">npm config set https-proxy http://127.0.0.1:1080</span><br></pre></td></tr></table></figure><p>其中，<code>127.0.0.1:1080</code> 是你的代理服务器地址和端口，请根据实际情况修改。</p><h4 id="2-2-设置-Socks-代理"><a href="#2-2-设置-Socks-代理" class="headerlink" title="2.2 设置 Socks 代理"></a>2.2 设置 Socks 代理</h4><p>如果你使用的是 Socks 代理，可以使用以下命令：</p><p>bash</p><p>复制</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set proxy socks5://127.0.0.1:1080</span><br><span class="line">npm config set https-proxy socks5://127.0.0.1:1080</span><br></pre></td></tr></table></figure><h4 id="2-3-取消代理设置"><a href="#2-3-取消代理设置" class="headerlink" title="2.3 取消代理设置"></a>2.3 取消代理设置</h4><p>如果你想取消代理设置，可以使用以下命令：</p><p>bash</p><p>复制</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config delete proxy</span><br><span class="line">npm config delete https-proxy</span><br></pre></td></tr></table></figure><h3 id="三、其他注意事项"><a href="#三、其他注意事项" class="headerlink" title="三、其他注意事项"></a>三、其他注意事项</h3><ul><li>使用国内镜像时，可能会出现包版本更新不及时的情况。如果你需要使用最新版本的包，可以临时切换回官方源。</li><li>科学上网时，请确保你的代理服务器稳定可靠，以避免影响 npm 的正常使用。</li></ul><h3 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h3><p>通过设置 npm 源和系统代理，你可以显著提升 npm 的下载速度，提高开发效率。希望本文能够帮助你更好地使用 npm。</p>]]></content>
       
       
       <categories>
           
-          <category> 前端 </category>
+          <category> 前端开发 </category>
           
       </categories>
       
       
-    </entry>
-    
-    
-    
-    <entry>
-      <title>这是一篇新的博文</title>
-      <link href="/2025/02/13/%E8%BF%99%E6%98%AF%E4%B8%80%E7%AF%87%E6%96%B0%E7%9A%84%E5%8D%9A%E6%96%87/"/>
-      <url>/2025/02/13/%E8%BF%99%E6%98%AF%E4%B8%80%E7%AF%87%E6%96%B0%E7%9A%84%E5%8D%9A%E6%96%87/</url>
-      
-        <content type="html"><![CDATA[<div class="video-container">[up主专用，视频内嵌代码贴在这]</div><style>.video-container {    position: relative;    width: 100%;    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */}.video-container iframe {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;}</style>]]></content>
-      
-      
+        <tags>
+            
+            <tag> 科学上网 </tag>
+            
+        </tags>
       
     </entry>
     
     
     
     <entry>
-      <title>肥猪赛大象</title>
-      <link href="/2025/01/11/%E8%82%A5%E7%8C%AA%E8%B5%9B%E5%A4%A7%E8%B1%A1/"/>
-      <url>/2025/01/11/%E8%82%A5%E7%8C%AA%E8%B5%9B%E5%A4%A7%E8%B1%A1/</url>
+      <title>Cursor：AI辅助编程的新星</title>
+      <link href="/2025/02/14/Cursor%EF%BC%9AAI%E8%BE%85%E5%8A%A9%E7%BC%96%E7%A8%8B%E7%9A%84%E6%96%B0%E6%98%9F/"/>
+      <url>/2025/02/14/Cursor%EF%BC%9AAI%E8%BE%85%E5%8A%A9%E7%BC%96%E7%A8%8B%E7%9A%84%E6%96%B0%E6%98%9F/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在众多AI辅助编程工具中，Cursor以其独特的设计理念和强大的功能迅速脱颖而出。这款专为开发者设计的智能编辑器，不仅继承了传统IDE的强大功能，还深度融合了先进的AI技术，为编程工作流带来了革命性的改变。Cursor的出现，标志着AI辅助编程工具进入了一个新的发展阶段，它不仅仅是代码补全工具，更是一个智能编程助手。</p><h3 id="一、Cursor的核心技术架构"><a href="#一、Cursor的核心技术架构" class="headerlink" title="一、Cursor的核心技术架构"></a>一、Cursor的核心技术架构</h3><p>Cursor基于OpenAI的GPT模型构建，采用了经过特殊训练的代码理解模型。这个模型不仅理解编程语言的语法，还能深入理解代码的语义和上下文关系。通过分析数百万个开源项目，Cursor的AI模型已经掌握了各种编程范式的最佳实践。</p><p>在代码理解能力方面，Cursor表现出色。它能够准确识别代码中的设计模式，理解变量和函数的语义，甚至能够推测开发者的编程意图。这种深度的代码理解能力使得Cursor能够提供更准确的代码建议和重构方案。</p><p>与VSCode的深度集成是Cursor的一大特色。它保留了VSCode的所有优秀特性，同时增加了AI辅助功能。开发者可以无缝切换使用传统功能和AI功能，这种设计大大降低了学习成本，提高了工具的实用性。</p><h3 id="二、Cursor的核心功能解析"><a href="#二、Cursor的核心功能解析" class="headerlink" title="二、Cursor的核心功能解析"></a>二、Cursor的核心功能解析</h3><p>Cursor的智能代码补全功能远超传统工具。它不仅能补全API调用，还能根据上下文生成完整的代码块。例如，当开发者输入函数声明时，Cursor能够自动生成相应的函数实现，包括必要的参数检查和异常处理。</p><p>代码重构建议功能是Cursor的另一个亮点。它能够识别代码中的设计问题，如重复代码、过长函数等，并提供具体的重构方案。这些建议不仅包括代码结构的调整，还包括性能优化和安全改进。</p><p>在错误检测与修复方面，Cursor采用了实时分析技术。它能够在开发者输入代码的同时检测潜在的错误，并提供修复建议。这种即时反馈机制大大减少了调试时间，提高了代码质量。</p><h3 id="三、Cursor在实际开发中的应用"><a href="#三、Cursor在实际开发中的应用" class="headerlink" title="三、Cursor在实际开发中的应用"></a>三、Cursor在实际开发中的应用</h3><p>在快速原型开发中，Cursor表现出色。开发者可以通过自然语言描述功能需求，Cursor能够快速生成相应的代码框架。这种能力特别适合敏捷开发环境，可以显著缩短开发周期。</p><p>对于代码审查和质量控制，Cursor提供了强大的支持。它能够自动检测代码风格问题，识别潜在的安全漏洞，并提供改进建议。这些功能使得代码审查过程更加高效和全面。</p><p>在团队协作开发中，Cursor的智能提示和代码生成功能可以帮助团队成员保持代码风格的一致性。它还能够识别团队成员之间的代码依赖关系，提供相应的调用建议，从而提高协作效率。</p><p>Cursor代表了AI辅助编程工具的发展方向，它不仅仅是提高效率的工具，更是改变编程方式的创新平台。随着AI技术的不断进步，Cursor这样的工具将继续推动软件开发行业的变革，使开发者能够更专注于创造性的工作，而不是重复性的编码任务。在未来，掌握和有效使用这类AI辅助工具将成为每个开发者的必备技能。</p>]]></content>
       
       
+      <categories>
+          
+          <category> 人工智能 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AI </tag>
+            
+        </tags>
       
     </entry>
     
     
     
     <entry>
-      <title>我的第一篇文章</title>
-      <link href="/2025/01/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
-      <url>/2025/01/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+      <title>AI辅助编程</title>
+      <link href="/2025/02/14/AI%E8%BE%85%E5%8A%A9%E7%BC%96%E7%A8%8B/"/>
+      <url>/2025/02/14/AI%E8%BE%85%E5%8A%A9%E7%BC%96%E7%A8%8B/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<style>.video-container {    position: relative;    width: 100%;    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */}.video-container iframe {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;}</style><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在软件开发领域，AI辅助编程工具正以前所未有的速度改变着开发者的工作方式。从简单的代码补全到复杂的代码生成，这些工具正在重新定义编程的边界。Cursor、VSCode+Cline、GitHub Copilot和通义灵码等工具的出现，标志着编程辅助工具已经从简单的语法检查进化到了智能代码生成的新阶段。这些工具不仅提升了开发效率，更重要的是，它们正在改变开发者解决问题的方式，使开发者能够将更多精力集中在系统设计和架构优化等更高层次的任务上。</p><h3 id="一、AI辅助编程工具的技术演进"><a href="#一、AI辅助编程工具的技术演进" class="headerlink" title="一、AI辅助编程工具的技术演进"></a>一、AI辅助编程工具的技术演进</h3><p>早期的代码补全工具主要基于静态代码分析，通过解析代码结构和语法规则提供有限的建议。随着机器学习技术的发展，现代AI编程工具采用了更先进的深度学习模型，能够理解代码上下文，提供更准确的建议。GitHub Copilot基于OpenAI的Codex模型，能够理解自然语言描述并生成相应的代码。通义灵码则采用了自研的深度学习模型，针对中文开发环境进行了专门优化。</p><p>这些工具的核心技术主要基于transformer架构，通过海量代码数据进行训练，使其能够理解编程语言的语法和语义。例如，GitHub Copilot接受了数十亿行公开代码的训练，使其能够生成高质量的代码片段。这种技术的进步使得AI辅助工具不仅能够完成简单的代码补全，还能理解开发者的意图，提供完整的函数实现甚至模块级代码。</p><p>从代码补全到代码生成，AI辅助工具的能力范围不断扩大。早期的工具只能提供简单的API补全，而现代工具已经能够根据注释生成完整函数，甚至能够理解业务需求生成相应的代码结构。这种演进极大地提升了开发效率，使开发者能够更专注于业务逻辑的实现。</p><h3 id="二、主流AI编程工具的功能对比"><a href="#二、主流AI编程工具的功能对比" class="headerlink" title="二、主流AI编程工具的功能对比"></a>二、主流AI编程工具的功能对比</h3><p>Cursor作为新兴的AI编程工具，以其简洁的界面和强大的代码生成能力受到开发者欢迎。它特别擅长处理Python代码，能够根据自然语言描述生成完整的函数实现。VSCode+Clink组合则提供了更灵活的定制能力，开发者可以根据自己的需求配置不同的AI模型，实现个性化的编程辅助。</p><p>GitHub Copilot是目前最成熟的AI编程工具之一，它深度集成在VSCode中，支持多种编程语言。Copilot不仅能够生成代码，还能提供代码解释、测试用例生成等功能。通义灵码作为国产AI编程工具的代表，在中文支持方面表现出色，特别适合中国开发者使用。它能够理解中文注释，并生成相应的代码实现。</p><p>这些工具在代码生成质量、响应速度和定制能力等方面各有优劣。GitHub Copilot在代码生成质量上表现最佳，但响应速度相对较慢；Cursor在Python项目上表现优异，但对其他语言支持有限；通义灵码在中文支持上具有明显优势，但国际化程度有待提高。</p><h3 id="三、AI编程工具对开发流程的影响"><a href="#三、AI编程工具对开发流程的影响" class="headerlink" title="三、AI编程工具对开发流程的影响"></a>三、AI编程工具对开发流程的影响</h3><p>AI辅助工具显著提升了开发效率，特别是在重复性代码编写和API调用等场景下。开发者不再需要记忆大量的API细节，工具能够根据上下文自动提供正确的调用方式。这种效率提升不仅体现在编码速度上，还体现在代码质量的提升上，因为AI工具能够避免常见的语法错误和API误用。</p><p>在代码质量提升方面，AI工具能够实时检测代码中的潜在问题，提供改进建议。它们不仅能够发现语法错误，还能识别出可能的内存泄漏、性能问题等。这种实时反馈机制使得开发者能够在编写代码的同时进行优化，减少了后期调试的时间。</p><p>对开发者技能结构的影响是深远的。AI工具的出现使得开发者需要更注重系统设计和架构能力，而不是具体的代码实现细节。这种转变要求开发者具备更强的抽象思维能力和系统思维能力，同时也需要掌握如何有效地使用AI工具来提升工作效率。</p><p>AI辅助编程工具正在重塑软件开发的面貌。它们不仅提升了开发效率，更重要的是改变了开发者的工作方式和思维模式。随着技术的不断进步，这些工具将变得更加智能和强大，为开发者提供更全面的支持。未来，掌握如何有效使用AI编程工具将成为开发者的必备技能，而人机协作的开发模式将成为行业标准。在这个快速发展的时代，拥抱AI辅助工具，提升开发效率和质量，是每个开发者都需要面对的课题。</p>]]></content>
       
       
+      <categories>
+          
+          <category> 人工智能 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AI </tag>
+            
+        </tags>
       
     </entry>
     
     
     
     <entry>
-      <title>Hello World</title>
-      <link href="/2025/01/11/hello-world/"/>
-      <url>/2025/01/11/hello-world/</url>
+      <title>如何用Ollama部署本地大模型</title>
+      <link href="/2025/02/14/%E5%A6%82%E4%BD%95%E7%94%A8Ollama%E9%83%A8%E7%BD%B2%E6%9C%AC%E5%9C%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B/"/>
+      <url>/2025/02/14/%E5%A6%82%E4%BD%95%E7%94%A8Ollama%E9%83%A8%E7%BD%B2%E6%9C%AC%E5%9C%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B/</url>
       
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+        <content type="html"><![CDATA[<style>.video-container {    position: relative;    width: 100%;    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */}.video-container iframe {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;}</style><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Ollama 是一个强大的工具，让你能够在本地运行各种大型语言模型 (LLMs)，无需依赖云端服务。本文将详细介绍如何使用 Ollama，并重点讲解如何在以下平台和工具中集成和使用它：</p><ul><li><strong>AnythingLLM</strong>: 将 Ollama 作为本地 LLM 后端，打造你的私人 AI 助手。</li><li><strong>VSCode Cline</strong>: 在 VSCode 中使用 Ollama 进行代码补全、文档生成等操作。</li><li><strong>Obsidian S2B</strong>: 将 Ollama 与 Obsidian 结合，提升你的笔记和知识管理效率。</li><li><strong>浏览器</strong>: 通过浏览器扩展或插件，随时随地使用 Ollama 的强大功能。</li></ul><h3 id="一、Ollama-的安装与配置"><a href="#一、Ollama-的安装与配置" class="headerlink" title="一、Ollama 的安装与配置"></a>一、Ollama 的安装与配置</h3><ol><li><strong>下载与安装</strong>: 访问 Ollama 官网 (<a href="https://ollama.ai/">https://ollama.ai</a>) 下载适合你操作系统的安装包，并按照提示完成安装。</li><li><strong>模型下载</strong>: 使用 <code>ollama pull</code> 命令下载你需要的模型，例如 <code>ollama pull llama2</code> 下载 LLaMA 2 模型。</li><li><strong>运行模型</strong>: 使用 <code>ollama run &lt;模型名称&gt;</code> 命令运行模型，例如 <code>ollama run llama2</code> 运行 LLaMA 2 模型。</li></ol><h3 id="二、在-AnythingLLM-中使用-Ollama"><a href="#二、在-AnythingLLM-中使用-Ollama" class="headerlink" title="二、在 AnythingLLM 中使用 Ollama"></a>二、在 AnythingLLM 中使用 Ollama</h3><ol><li><strong>安装 AnythingLLM</strong>: 访问 AnythingLLM 官网 (<a href="https://anythingllm.ai/">https://anythingllm.ai</a>) 下载并安装。</li><li><strong>配置 Ollama 后端</strong>: 在 AnythingLLM 的设置中，选择 “Local” 作为 LLM 提供商，并填写 Ollama 的 API 地址 (默认为 <code>http://localhost:11434</code>)。</li><li><strong>选择模型</strong>: 在 AnythingLLM 的模型选择界面，选择你已下载并运行的 Ollama 模型。</li><li><strong>开始使用</strong>: 现在你可以在 AnythingLLM 中使用 Ollama 模型进行对话、生成文本等操作。</li></ol><h3 id="三、在-VSCode-Cline-中使用-Ollama"><a href="#三、在-VSCode-Cline-中使用-Ollama" class="headerlink" title="三、在 VSCode Cline 中使用 Ollama"></a>三、在 VSCode Cline 中使用 Ollama</h3><ol><li><strong>安装 VSCode Cline 扩展</strong>: 在 VSCode 扩展商店中搜索 “Ollama” 并安装。</li><li><strong>配置 Ollama</strong>: 在扩展设置中，填写 Ollama 的 API 地址 (默认为 <code>http://localhost:11434</code>)。</li><li><strong>使用 Ollama</strong>: 在 VSCode 中，你可以使用快捷键或右键菜单调用 Ollama 进行代码补全、文档生成、代码解释等操作。</li></ol><h3 id="四、在-Obsidian-S2B-中使用-Ollama"><a href="#四、在-Obsidian-S2B-中使用-Ollama" class="headerlink" title="四、在 Obsidian S2B 中使用 Ollama"></a>四、在 Obsidian S2B 中使用 Ollama</h3><ol><li><strong>安装 Obsidian S2B 插件</strong>: 在 Obsidian 社区插件商店中搜索 “Ollama” 并安装。</li><li><strong>配置 Ollama</strong>: 在插件设置中，填写 Ollama 的 API 地址 (默认为 <code>http://localhost:11434</code>)。</li><li><strong>使用 Ollama</strong>: 在 Obsidian 中，你可以使用命令面板或快捷键调用 Ollama 进行笔记生成、内容总结、文本翻译等操作。</li></ol><h3 id="五、在浏览器中使用-Ollama"><a href="#五、在浏览器中使用-Ollama" class="headerlink" title="五、在浏览器中使用 Ollama"></a>五、在浏览器中使用 Ollama</h3><ol><li><strong>安装浏览器扩展</strong>: 访问 Chrome 或 Firefox 扩展商店，搜索 “Ollama” 并安装。</li><li><strong>配置 Ollama</strong>: 在扩展设置中，填写 Ollama 的 API 地址 (默认为 <code>http://localhost:11434</code>)。</li><li><strong>使用 Ollama</strong>: 在浏览器中，你可以使用扩展图标或右键菜单调用 Ollama 进行网页内容总结、文本翻译、问题解答等操作。</li></ol><h3 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h3><p>Ollama 为本地运行大型语言模型提供了便捷的解决方案，通过与 AnythingLLM、VSCode Cline、Obsidian S2B 以及浏览器的集成，你可以将 Ollama 的强大功能应用到各种场景中，提升工作效率和创造力。</p><p><strong>注意</strong>: 使用本地 LLM 需要一定的硬件资源，建议使用性能较好的电脑。</p>]]></content>
       
       
+      <categories>
+          
+          <category> 人工智能 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>RUST引领前端工具链革新</title>
+      <link href="/2025/02/14/RUST%E5%BC%95%E9%A2%86%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E9%93%BE%E9%9D%A9%E6%96%B0/"/>
+      <url>/2025/02/14/RUST%E5%BC%95%E9%A2%86%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E9%93%BE%E9%9D%A9%E6%96%B0/</url>
+      
+        <content type="html"><![CDATA[<style>.video-container {    position: relative;    width: 100%;    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */}.video-container iframe {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;}</style><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前端开发领域正在经历一场静默的革命。长期以来，JavaScript 语言在前端生态系统中占据绝对主导地位，从构建工具到运行时环境，JavaScript 无处不在。这种垄断地位虽然确保了生态系统的统一性，但也带来了性能瓶颈和工具链复杂度过高等问题。近年来，以 Rust 为代表的新一代编程语言开始在前端工具链中崭露头角，Tauri、Deno、esbuild、SWC、Turbopack 等项目的出现，标志着前端工具链正在经历一场深刻的变革。这场变革不仅关乎性能提升，更预示着前端开发范式将发生根本性转变。</p><h3 id="一、JavaScript-工具链的困境"><a href="#一、JavaScript-工具链的困境" class="headerlink" title="一、JavaScript 工具链的困境"></a>一、JavaScript 工具链的困境</h3><p>JavaScript 工具链的膨胀已经成为前端开发者的噩梦。一个典型的前端项目需要依赖数以千计的 npm 包，构建时间动辄数分钟，内存占用经常突破数 GB。Webpack 等传统构建工具虽然功能强大，但其复杂的配置和缓慢的构建速度已经成为开发效率的瓶颈。</p><p>性能问题在大型项目中尤为突出。随着项目规模的增长，JavaScript 工具链的性能瓶颈日益明显。TypeScript 编译、代码压缩、tree shaking 等操作都需要消耗大量计算资源，开发者的等待时间越来越长。</p><p>开发者体验的恶化直接影响了开发效率。热重载速度慢、构建过程不透明、错误信息不友好等问题，使得开发者不得不将大量时间花费在工具链的调试和优化上，而不是专注于业务逻辑开发。</p><h3 id="二、Rust-的崛起与优势"><a href="#二、Rust-的崛起与优势" class="headerlink" title="二、Rust 的崛起与优势"></a>二、Rust 的崛起与优势</h3><p>Rust 语言凭借其独特的内存安全保证和卓越的性能表现，在前端工具链领域迅速崛起。Rust 的所有权系统确保了内存安全，同时避免了垃圾回收带来的性能开销，这使得 Rust 非常适合开发高性能的系统级工具。</p><p>在前端工具链中，Rust 的应用已经取得了显著成果。esbuild 的构建速度比 Webpack 快 100 倍以上，SWC 的编译速度是 Babel 的 20 倍，Turbopack 在大型项目中的性能表现更是令人惊叹。这些工具不仅速度快，而且内存占用低，极大地改善了开发体验。</p><p>开发者体验的提升是 Rust 工具链的另一大优势。Rust 工具链通常具有更简单的配置、更清晰的错误信息和更快的反馈循环，这使得开发者能够更专注于代码本身，而不是工具的使用。</p><h3 id="三、前端工具链的未来图景"><a href="#三、前端工具链的未来图景" class="headerlink" title="三、前端工具链的未来图景"></a>三、前端工具链的未来图景</h3><p>新一代工具链正在重塑前端开发范式。Tauri 使用 Rust 构建桌面应用框架，提供了比 Electron 更小的打包体积和更高的性能。Deno 重新设计了 JavaScript 运行时，内置了 TypeScript 支持和现代化的工具链。</p><p>跨语言协作将成为常态。Rust 负责底层工具链和性能关键部分，JavaScript&#x2F;TypeScript 负责业务逻辑，这种分工模式正在被广泛接受。这种协作模式既保留了 JavaScript 生态的丰富性，又解决了性能瓶颈问题。</p><p>前端开发范式正在发生根本性转变。随着 Rust 工具链的成熟，前端开发者将获得更接近系统编程的开发体验，同时保持 JavaScript 的灵活性。这种转变将推动前端开发向更高效、更可靠的方向发展。</p><p>前端工具链的革新才刚刚开始。Rust 等系统级语言的引入，不仅解决了性能问题，更重要的是为前端开发带来了新的可能性。这场变革将推动前端开发向更专业、更高效的方向发展，最终带来更好的用户体验和更高的开发效率。随着 Rust 在前端生态中的深入应用，我们有理由相信，前端开发的黄金时代即将到来。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> rust </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>前端包管理工具对比</title>
+      <link href="/2025/02/14/%E5%89%8D%E7%AB%AF%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E5%AF%B9%E6%AF%94/"/>
+      <url>/2025/02/14/%E5%89%8D%E7%AB%AF%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E5%AF%B9%E6%AF%94/</url>
+      
+        <content type="html"><![CDATA[<style>.video-container {    position: relative;    width: 100%;    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */}.video-container iframe {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;}</style><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>主浏包管理工具对<code>npm</code>、<code>Yarn</code>、<code>pnpm</code> 和 <code>Bun</code> 是 JavaScript 生态系统中常用的包管理工具，它们各有特点和优势。以下是它们的对比：</p><hr><h3 id="1-npm"><a href="#1-npm" class="headerlink" title="1. npm"></a>1. <strong>npm</strong></h3><ul><li><strong>简介</strong>: npm（Node Package Manager）是 Node.js 的官方包管理工具，随 Node.js 一起安装。</li><li><strong>特点</strong>:<ul><li>最广泛使用，生态系统最成熟。</li><li>支持 <code>package-lock.json</code> 锁定依赖版本。</li><li>提供了丰富的命令行工具和脚本支持。</li></ul></li><li><strong>优点</strong>:<ul><li>官方支持，社区资源丰富。</li><li>与 Node.js 深度集成。</li></ul></li><li><strong>缺点</strong>:<ul><li>安装速度较慢。</li><li>依赖管理方式可能导致重复依赖（嵌套的 <code>node_modules</code>）。</li><li>历史包袱较重，早期版本存在一些问题。</li></ul></li></ul><hr><h3 id="2-Yarn"><a href="#2-Yarn" class="headerlink" title="2. Yarn"></a>2. <strong>Yarn</strong></h3><ul><li><strong>简介</strong>: Yarn 是由 Facebook、Google 等公司开发的包管理工具，旨在解决 npm 的一些问题。</li><li><strong>特点</strong>:<ul><li>引入了 <code>yarn.lock</code> 文件，确保依赖版本一致性。</li><li>支持并行安装，速度比 npm 快。</li><li>提供了 Workspaces 功能，支持多包管理。</li></ul></li><li><strong>优点</strong>:<ul><li>安装速度快，依赖管理更高效。</li><li>社区活跃，插件生态丰富。</li><li>支持离线模式。</li></ul></li><li><strong>缺点</strong>:<ul><li>早期版本与 npm 不完全兼容。</li><li>配置相对复杂。</li></ul></li></ul><hr><h3 id="3-pnpm"><a href="#3-pnpm" class="headerlink" title="3. pnpm"></a>3. <strong>pnpm</strong></h3><ul><li><strong>简介</strong>: pnpm 是一个高效的包管理工具，通过硬链接和符号链接减少磁盘空间占用。</li><li><strong>特点</strong>:<ul><li>使用全局存储（<code>~/.pnpm-store</code>）来共享依赖，减少重复安装。</li><li>依赖扁平化处理，但避免了 npm 和 Yarn 的依赖提升问题。</li><li>支持 Workspaces 和 Monorepo。</li></ul></li><li><strong>优点</strong>:<ul><li>安装速度快，磁盘空间占用少。</li><li>依赖管理更严格，避免幽灵依赖问题。</li><li>兼容 npm 和 Yarn 的配置文件。</li></ul></li><li><strong>缺点</strong>:<ul><li>部分工具链可能不完全兼容。</li><li>社区生态相对较小。</li></ul></li></ul><hr><h3 id="4-Bun"><a href="#4-Bun" class="headerlink" title="4. Bun"></a>4. <strong>Bun</strong></h3><ul><li><strong>简介</strong>: Bun 是一个新兴的 JavaScript 运行时和工具链，内置了包管理功能。</li><li><strong>特点</strong>:<ul><li>集成了包管理、测试、打包等功能。</li><li>使用 Zig 编写，性能极高。</li><li>兼容 npm 和 Yarn 的配置文件。</li></ul></li><li><strong>优点</strong>:<ul><li>安装速度极快，性能优于其他工具。</li><li>一体化工具链，简化开发流程。</li><li>支持 TypeScript 和 JSX 开箱即用。</li></ul></li><li><strong>缺点</strong>:<ul><li>相对较新，生态和稳定性有待验证。</li><li>部分功能尚未完全成熟。</li></ul></li></ul><hr><h3 id="对比总结"><a href="#对比总结" class="headerlink" title="对比总结"></a>对比总结</h3><table><thead><tr><th>特性</th><th>npm</th><th>Yarn</th><th>pnpm</th><th>Bun</th></tr></thead><tbody><tr><td><strong>安装速度</strong></td><td>较慢</td><td>较快</td><td>快</td><td>极快</td></tr><tr><td><strong>磁盘占用</strong></td><td>高</td><td>较高</td><td>低</td><td>低</td></tr><tr><td><strong>依赖管理</strong></td><td>嵌套<code>node_modules</code></td><td>扁平化<code>node_modules</code></td><td>全局存储 + 符号链接</td><td>扁平化<code>node_modules</code></td></tr><tr><td><strong>锁定文件</strong></td><td><code>package-lock.json</code></td><td><code>yarn.lock</code></td><td><code>pnpm-lock.yaml</code></td><td>兼容<code>package-lock.json</code></td></tr><tr><td><strong>Workspaces</strong></td><td>支持</td><td>支持</td><td>支持</td><td>支持</td></tr><tr><td><strong>生态兼容性</strong></td><td>最好</td><td>较好</td><td>较好</td><td>较新，兼容性待验证</td></tr><tr><td><strong>适用场景</strong></td><td>通用</td><td>大型项目</td><td>磁盘敏感项目</td><td>高性能需求项目</td></tr></tbody></table><hr><h3 id="选择建议"><a href="#选择建议" class="headerlink" title="选择建议"></a>选择建议</h3><ul><li><strong>npm</strong>: 适合初学者或小型项目，生态成熟。</li><li><strong>Yarn</strong>: 适合大型项目，需要高效依赖管理和 Workspaces 支持。</li><li><strong>pnpm</strong>: 适合磁盘空间有限或需要严格依赖管理的项目。</li><li><strong>Bun</strong>: 适合追求极致性能或一体化工具链的项目，但需注意其成熟度。</li></ul><p>根据项目需求和团队熟悉度选择合适的工具即可。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>前端打包工具发展史</title>
+      <link href="/2025/02/14/%E5%89%8D%E7%AB%AF%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7%E5%8F%91%E5%B1%95%E5%8F%B2/"/>
+      <url>/2025/02/14/%E5%89%8D%E7%AB%AF%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7%E5%8F%91%E5%B1%95%E5%8F%B2/</url>
+      
+        <content type="html"><![CDATA[<style>.video-container {    position: relative;    width: 100%;    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */}.video-container iframe {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;}</style><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前端开发在过去十多年中经历了翻天覆地的变化，尤其是在模块化规范和构建工具方面。从最初的简单脚本加载到如今的极速构建工具，前端打包工具的发展不仅提升了开发效率，也极大地改善了开发体验。本文将以时间线为线索，带你回顾前端打包工具的发展历程。</p><h1 id="2009年：CommonJS-与-Node-js-的诞生"><a href="#2009年：CommonJS-与-Node-js-的诞生" class="headerlink" title="2009年：CommonJS 与 Node.js 的诞生"></a>2009年：CommonJS 与 Node.js 的诞生</h1><p>2009年，Node.js 的出现让 JavaScript 突破了浏览器的限制，进入了服务器端开发领域。与此同时，CommonJS 模块化规范被引入，通过 require 和 module.exports 实现了模块的导入和导出。这一规范为 JavaScript 的模块化开发奠定了基础，但主要用于服务器端环境，浏览器端仍然缺乏类似的模块化支持。</p><h1 id="2011年：RequireJS-与-AMD-规范"><a href="#2011年：RequireJS-与-AMD-规范" class="headerlink" title="2011年：RequireJS 与 AMD 规范"></a>2011年：RequireJS 与 AMD 规范</h1><p>为了解决浏览器端的模块化问题，RequireJS 应运而生。它遵循 AMD（Asynchronous Module Definition）规范，支持异步加载模块，使得开发者可以在浏览器中实现模块化开发。AMD 规范的核心理念是“按需加载”，特别适合浏览器环境。</p><h1 id="2013年：Grunt、Gulp-与-Browserify"><a href="#2013年：Grunt、Gulp-与-Browserify" class="headerlink" title="2013年：Grunt、Gulp 与 Browserify"></a>2013年：Grunt、Gulp 与 Browserify</h1><p>2013年，前端开发进入了任务自动化的时代。Grunt 和 Gulp 作为任务运行器，帮助开发者自动化处理诸如代码压缩、文件合并等重复性工作。与此同时，Browserify 的出现让开发者可以在浏览器中编写 Node.js 风格的代码。它通过打包 CommonJS 模块，使得 Node.js 模块可以在浏览器中运行。</p><h1 id="2014年：UMD-与-Babel"><a href="#2014年：UMD-与-Babel" class="headerlink" title="2014年：UMD 与 Babel"></a>2014年：UMD 与 Babel</h1><p>2014年是前端工具生态快速发展的一年。UMD（Universal Module Definition）规范被提出，它兼容 AMD、CommonJS 和全局变量，使得模块可以在多种环境中运行。同年，Babel（最初名为 6to5）诞生，它可以将 ES6 代码转换为 ES5 代码，让开发者能够使用最新的 JavaScript 特性，同时兼容旧版浏览器。</p><h1 id="2014年：Webpack-的崛起"><a href="#2014年：Webpack-的崛起" class="headerlink" title="2014年：Webpack 的崛起"></a>2014年：Webpack 的崛起</h1><p>Webpack 在 2014年崭露头角，迅速成为前端打包工具的标杆。它通过 Loader 和 Plugin 机制，支持处理各种资源（如 JavaScript、CSS、图片等），并生成优化后的打包文件。Webpack 的强大功能和灵活性使其成为当时最流行的构建工具。</p><h1 id="2015年：ES6-与-Rollup"><a href="#2015年：ES6-与-Rollup" class="headerlink" title="2015年：ES6 与 Rollup"></a>2015年：ES6 与 Rollup</h1><p>2015年，ES6（ES2015）正式发布，带来了许多新特性，如箭头函数、类、模块等。Babel 的 @babel&#x2F;preset-env 可以根据目标环境自动转换代码，进一步推动了 ES6 的普及。同年，Rollup 发布，它基于 ES6 模块规范，支持 Tree-shaking（移除未使用的代码），特别适合构建库和应用程序。</p><h1 id="2017年：Webpack-的挑战者——Parcel"><a href="#2017年：Webpack-的挑战者——Parcel" class="headerlink" title="2017年：Webpack 的挑战者——Parcel"></a>2017年：Webpack 的挑战者——Parcel</h1><p>尽管 Webpack 功能强大，但其配置复杂、文档不清晰的问题逐渐暴露。2017年，Parcel 以“零配置”为卖点横空出世，提供了简单易用的打包体验。虽然 Parcel 的新特性支持比 Webpack 慢一个版本，但其操作简单、开箱即用的特性吸引了许多开发者。</p><h1 id="2019年：Snowpack-与-Bundleless-模式"><a href="#2019年：Snowpack-与-Bundleless-模式" class="headerlink" title="2019年：Snowpack 与 Bundleless 模式"></a>2019年：Snowpack 与 Bundleless 模式</h1><p>随着浏览器对 ES6 模块的支持逐渐完善，Snowpack 提出了 Bundleless 的开发模式。它基于 ESM（ES Modules），利用浏览器原生支持 ESM 的特性，减少了打包的需求，显著提升了开发效率。</p><h1 id="2020年：esbuild-的极速构建"><a href="#2020年：esbuild-的极速构建" class="headerlink" title="2020年：esbuild 的极速构建"></a>2020年：esbuild 的极速构建</h1><p>2020年，esbuild 发布，它基于 Go 语言实现，利用多线程和高效的编译速度，将构建性能提升到了一个新的高度。esbuild 的出现让开发者意识到，构建工具的性能还有巨大的提升空间。</p><h1 id="2021年：Vite-的现代构建体验"><a href="#2021年：Vite-的现代构建体验" class="headerlink" title="2021年：Vite 的现代构建体验"></a>2021年：Vite 的现代构建体验</h1><p>Vite 在 2021年迅速走红，它基于 ESM 和现代浏览器的特性，提供了快速的开发服务器和高效的打包体验。Vite 的开发服务器启动速度极快，几乎可以做到“秒开”，极大地提升了开发者的工作效率。</p><h1 id="2022年：Turborepo-与-Turbopack"><a href="#2022年：Turborepo-与-Turbopack" class="headerlink" title="2022年：Turborepo 与 Turbopack"></a>2022年：Turborepo 与 Turbopack</h1><p>2022年，Turborepo 和 Turbopack 的发布进一步推动了前端构建工具的发展。Turborepo 是一个高性能的 Monorepo 管理工具，而 Turbopack 是基于 Rust 的极速打包工具（由 Webpack 的创始人开发），旨在提供更快的构建速度。Turbopack 的 Beta 版本发布后，受到了广泛关注。</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>前端打包工具的发展历程，本质上是为了解决两个核心问题：模块化和性能。从 CommonJS 到 ESM，模块化规范逐渐统一；从 Grunt&#x2F;Gulp 到 Webpack&#x2F;Rollup，再到 Vite&#x2F;esbuild，构建工具越来越注重性能和开发体验。未来，随着 Rust、Go 等语言的普及，前端构建工具的性能还将进一步提升，Bundleless 和基于 ESM 的开发模式也将成为主流。</p><p>前端开发的未来，注定会更加高效、更加智能。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
       
     </entry>
     
