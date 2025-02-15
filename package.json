@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "build": "hexo generate",
+    "postbuild": "echo /my-blog/* /:splat 200 > public/_redirects",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "server": "hexo server",
     "start": "hexo clean && hexo generate && hexo server",
-    "publish": "hexo clean && hexo generate && hexo deploy"
+    "publish": "hexo clean && npm run build && hexo deploy"
   },
   "hexo": {
     "version": "7.3.0"
